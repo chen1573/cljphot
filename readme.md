@@ -8,26 +8,38 @@ github:<https://github.com/chen1573/cljphot>
 
 ## 要求：
 
-1.  图像需要有正确的 wcs 坐标
-2.  使用 J2000的坐标
-3.  图像已经过 本底、平场 矫正
+1.  电脑装有`iraf`
+2.  图像需要有正确的 wcs 坐标
+3.  使用 J2000的坐标
+4.  图像已经过 本底、平场 矫正
 
-## 安装与设置：
+## 安装：
 
-1.  将整个程序文件夹放到一个合适的地方，在程序文件夹下打开终端运行
+这是python3程序，直接用python3运行`cljphot.py`就行，建议用`venv`或`conda`创建一个虚拟环境，然后在自己的`.bashrc`文件加入一个命令。
+
+1.  如用`venv`，将整个程序文件夹放到一个合适的地方，在程序文件夹下打开终端，运行
 
         python3 -m venv cljphotenv
         source cljphotenv/bin/activate
         pip3 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
         which python3
 
-2.  `which python3` 命令给出了一个python3的路径，在自己的`.bashrc`文件加入`alias cljphot='/那个python3的路径/python3  /到/程/序/的/路/经/cljphot.py'`
+    `which python3` 命令给出了一个python3的路径，在自己的`.bashrc`文件加入`alias cljphot='/那个python3的路径/python3  /到/程/序/的/路/经/cljphot.py'`
 
-3.  `default_setting.py` 里fits文件的keyword根据自己图像修改
+2.  如用`conda`，将整个程序文件夹放到一个合适的地方，在程序文件夹下打开终端，运行
 
-4.  环境变量 `iraf`需指向自己计算机的iraf安装目录，例如我的，`export iraf="/home/clj/applications/iraf-2.17/"`，使用apt-get 安装iraf的一般已经自动定义好。
+        conda create -n cljphotenv python=python3
+        conda activate cljphotenv
+        pip3 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
+        which python3
 
-5.  修改iraf 的 `login.cl `文件里 `set stdimage = imt1024`  ，去掉该行首的`#`，数字应与自己要测的图像大小一致，否则保存图像时画测光孔径位置有大幅度偏差。
+    `which python3` 命令给出了一个python3的路径，在自己的`.bashrc`文件加入`alias cljphot='/那个python3的路径/python3  /到/程/序/的/路/经/cljphot.py'`
+
+## 设置
+
+1.  `default_setting.py` 里fits文件的keyword根据自己图像修改
+2.  环境变量 `iraf`需指向自己计算机的iraf安装目录，例如我的，`export iraf="/home/clj/applications/iraf-2.17/"`，使用apt-get 安装iraf的一般已经自动定义好。
+3.  修改iraf 的 `login.cl `文件里 `set stdimage = imt1024`  ，去掉该行首的`#`，数字应与自己要测的图像大小一致，否则保存图像时画测光孔径位置有大幅度偏差。
 
 ## 使用方法：
 
@@ -89,3 +101,4 @@ github:<https://github.com/chen1573/cljphot>
            R = r - 0.2936*(r - i) - 0.1439;  sigma = 0.0072
            I = r - 1.2444*(r - i) - 0.3820;  sigma = 0.0078
            I = i - 0.3780*(i - z)  -0.3974;  sigma = 0.0063
+
