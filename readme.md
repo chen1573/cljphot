@@ -39,7 +39,7 @@ github:<https://github.com/chen1573/cljphot>
 
 1.  `default_setting.py` 里fits文件的keyword根据自己图像修改
 2.  环境变量 `iraf`需指向自己计算机的iraf安装目录，例如我的，`export iraf="/home/clj/applications/iraf-2.17/"`，使用apt-get 安装iraf的一般已经自动定义好。
-3.  修改iraf 的 `login.cl `文件里 `set stdimage = imt1024`  ，去掉该行首的`#`，数字应与自己要测的图像大小一致，否则保存图像时画测光孔径位置有大幅度偏差。
+
 
 ## 使用方法：
 
