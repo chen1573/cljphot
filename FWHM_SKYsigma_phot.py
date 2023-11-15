@@ -3,9 +3,11 @@ from subprocess import Popen,run,PIPE
 # import easygui
 from pyraf import iraf
 from pyraf.iraf import noao, images
-from default_setting import display_text
+from default_setting import display_text,imtsize
 from pathlib import Path
 images.tv()
+iraf.set(stdgraph="stdplot")
+iraf.set(stdimage	= "imt%s"%(imtsize))
 
 
 def FWHM_skysigma_phot(fits_file,region_phot_fk5_filename,apertur,annulus,dannulus):
