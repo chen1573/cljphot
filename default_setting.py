@@ -5,12 +5,14 @@ banddict={'B':'b' ,'V':'g','R':'r' ,'I':'orange'} # 测光波段画图对应颜�
 
 # 图像头文件关键词 
 # LCO
+imtsize='4096'
 FILTERkey='FILTER'
 StartOfExposurekey='MJD-OBS'
 StartOfExposureformat='mjd'
 EXPTIMEkey='EXPTIME'
 
 # # xinglong 
+# imtsize='1024'
 # FILTERkey='FILTER'
 # StartOfExposurekey='JD'
 # StartOfExposureformat='jd'
