@@ -1,33 +1,23 @@
-# 基于 pyraf 的测光程序
+# cljphot: A batch photometry program based on pyraf
+# cljphot: 基于 pyraf 的批量测光程序
 
 可用于单幅、批量测光
 
 程序还不完善，不定期更新
 
-github:<https://github.com/chen1573/cljphot>
-
 ## 要求：
 
-1.  电脑装有`iraf`
-2.  图像需要有正确的 wcs 坐标
-3.  使用 J2000的坐标
-4.  图像已经过 本底、平场 矫正
+1.  电脑装有`iraf`,可以直接`sudo apt install iraf`安装  
+2.  图像需要有正确的 wcs 坐标  
+3.  使用 J2000的坐标  
+4.  图像已经过 本底、平场 矫正  
 
 ## 安装：
 
-这是python3程序，直接用python3运行`cljphot.py`就行，建议用`venv`或`conda`创建一个虚拟环境，然后在自己的`.bashrc`文件加入一个命令。
+这是python3程序，直接用python3运行`cljphot.py`就行，建议`conda`创建一个虚拟环境，然后在自己的`.bashrc`文件加入一个命令。
 
-1.  如用`venv`，将整个程序文件夹放到一个合适的地方，在程序文件夹下打开终端，运行
-
-        python3 -m venv cljphotenv
-        source cljphotenv/bin/activate
-        pip3 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
-        which python3
-
-    `which python3` 命令给出了一个python3的路径，在自己的`.bashrc`文件加入`alias cljphot='/那个python3的路径/python3  /到/程/序/的/路/经/cljphot.py'`
-
-2.  如用`conda`，将整个程序文件夹放到一个合适的地方，在程序文件夹下打开终端，运行
-
+如用`conda`，将整个程序文件夹放到一个合适的地方，在程序文件夹下打开终端，运行
+        sudo apt install libx11-dev xpa-tools
         conda create -n cljphotenv python=python3
         conda activate cljphotenv
         pip3 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
@@ -68,7 +58,7 @@ github:<https://github.com/chen1573/cljphot>
 
 8.  点击`确定DS9当前的region为测光位置`,程序确定本次测光的位置，并保存文件，下次可点击`载入 region 文件到 DS9`选择该文件。
 
-9.  点击`匹配catalog条目与参考星位置`，程序会在catalog文件内寻找参考星对应的条目，并将`ugriz`转换为`BVRI`[Lupton (2005)](https://classic.sdss.org/dr7/algorithms/sdssUBVRITransform.php#Rodgers2005)。
+9.  点击`匹配catalog条目与参考星位置`，程序会在catalog文件内寻找参考星对应的条目，如用SSDS的catalog则将`ugriz`转换为`BVRI`[Lupton (2005)](https://classic.sdss.org/dr7/algorithms/sdssUBVRITransform.php#Rodgers2005)。
 
 10. 测光孔径、背景环可点击`modify`按钮修改，
 
