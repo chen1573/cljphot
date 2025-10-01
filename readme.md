@@ -16,13 +16,14 @@
 
 这是python3程序，直接用python3运行`cljphot.py`就行，建议`conda`创建一个虚拟环境，然后在自己的`.bashrc`文件加入一个命令。
 
-如用`conda`，将整个程序文件夹放到一个合适的地方，在程序文件夹下打开终端，运行
-        sudo apt install libx11-dev xpa-tools
-        conda create -n cljphotenv python=python3
-        conda activate cljphotenv
-        pip3 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
-        which python3
-
+如用`conda`，将整个程序文件夹放到一个合适的地方，在程序文件夹下打开终端，运行  
+```
+sudo apt install libx11-dev xpa-tools  
+conda create -n cljphotenv python=python3  
+conda activate cljphotenv  
+pip3 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/  
+which python3  
+```
     `which python3` 命令给出了一个python3的路径，在自己的`.bashrc`文件加入`alias cljphot='/那个python3的路径/python3  /到/程/序/的/路/经/cljphot.py'`
 
 ## 设置
